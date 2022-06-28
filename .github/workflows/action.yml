@@ -28,7 +28,7 @@ jobs:
     container:
       image: leandromoreirajfa/pre-commit:latest
       env:
-        NODE_ENV: development
+        ENV: "Test"
       options: --cpus 1
     steps:
       - name: Precommit Validate
