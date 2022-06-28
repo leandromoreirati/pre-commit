@@ -1,0 +1,19 @@
+name: Pre Commit
+
+on: push
+
+jobs:
+  precommit-validate:
+    runs-on: ubuntu-latest
+    image: leandromoreirajfa/pre-commit:latest
+    credential:
+      username: ${{ secrets.username }}
+      password: ${{ secrets.password }}
+    env:
+      ENV: "Teste"
+    options: --cpu 1 --entrypoint ['/usr/bin/env', 'PATH=/usr/local/bin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin']
+  steps:
+    - name: Precommit Validate Step
+      echo $ENV
+      pre-commit install
+      pre-commit run --all-files --show-diff-on-failure || true
