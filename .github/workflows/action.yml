@@ -29,10 +29,11 @@ jobs:
       image: leandromoreirajfa/pre-commit:1.0.0
       env:
         ENV: "Test"
-      options: --cpus 1 --entrypoint ['/usr/bin/env', 'PATH=/usr/local/bin:/usr/local/bin:/usr/#sbin:/usr/bin:/sbin:/bin']
+        PATH: /usr/local/bin:/usr/local/bin:/usr/#sbin:/usr/bin:/sbin:/bin
+      options: --cpus 1
     steps:
       - name: Precommit Validate
         run: |
           echo $ENV
-          git init
+         
           pre-commit install
