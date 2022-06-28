@@ -29,7 +29,7 @@ jobs:
       image: leandromoreirajfa/pre-commit:1.0.0
       env:
         ENV: "Test"
-      options: --cpus 1
+      options: --cpus 1 --entrypoint ['/usr/bin/env', 'PATH=/usr/local/bin:/usr/local/bin:/usr/#sbin:/usr/bin:/sbin:/bin']
     steps:
       - name: Precommit Validate
         run: |
