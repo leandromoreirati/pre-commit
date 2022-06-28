@@ -36,3 +36,4 @@ jobs:
           echo ${{ github.workspace }}
           echo $ENV
           cat /etc/os-release
+          /usr/local/bin/pre-commit install
