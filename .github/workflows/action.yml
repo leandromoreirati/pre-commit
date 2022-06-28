@@ -15,5 +15,6 @@ jobs:
       options: --cpu 1 --entrypoint ['/usr/bin/env', 'PATH=/usr/local/bin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin']
     steps:
       - name: Precommit Validate Step
-        pre-commit install
-        pre-commit run --all-files --show-diff-on-failure || true
+        run: |
+          pre-commit install
+          pre-commit run --all-files --show-diff-on-failure || true
