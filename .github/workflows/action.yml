@@ -1,21 +1,39 @@
 name: Pre-commit
 
-on: push
-
+#on: push
+#
+#jobs:
+#  precommit-validate:
+#    runs-on: ubuntu-latest
+#    container:
+#      image: leandromoreirajfa/pre-commit:latest
+#      #credentials:
+#      #  username: ${{ secrets.username }}
+#      #  password: ${{ secrets.password }}
+#      #env:
+#      #  ENV: Teste
+#      options: --cpus 1 --entrypoint ['/usr/bin/env', 'PATH=/usr/local/bin:/usr/local/bin:/usr/#sbin:/usr/bin:/sbin:/bin']
+#    steps:
+#      - name: Precommit Validate Step
+#        run: |
+#          echo $ENV
+#          pre-commit install
+         
+on:
+  push:
+    branches: [ main ]
 jobs:
-  precommit-validate:
+  container-test-job:
     runs-on: ubuntu-latest
     container:
       image: leandromoreirajfa/pre-commit:latest
-      #credentials:
-      #  username: ${{ secrets.username }}
-      #  password: ${{ secrets.password }}
-      #env:
-      #  ENV: Teste
-      options: --cpus 1 --entrypoint ['/usr/bin/env', 'PATH=/usr/local/bin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin']
+      env:
+        NODE_ENV: development
+      ports:
+        - 80
+      options: --cpus 1
     steps:
-      - name: Precommit Validate Step
+      - name: Check for dockerenv file
         run: |
-          echo $ENV
-          pre-commit install
-         
+           echo $ENV
+            pre-commit install
