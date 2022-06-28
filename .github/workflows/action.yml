@@ -7,9 +7,9 @@ jobs:
     runs-on: ubuntu-latest
     container:
       image: leandromoreirajfa/pre-commit:latest
-      credential:
-        username: ${{ secrets.username }}
-        password: ${{ secrets.password }}
+      #credential:
+      #  username: ${{ secrets.username }}
+      #  password: ${{ secrets.password }}
       env:
         ENV: "Teste"
       options: --cpu 1 --entrypoint ['/usr/bin/env', 'PATH=/usr/local/bin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin']
