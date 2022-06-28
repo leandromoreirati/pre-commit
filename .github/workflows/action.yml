@@ -7,12 +7,12 @@ jobs:
     runs-on: ubuntu-latest
     container:
       image: leandromoreirajfa/pre-commit:latest
-      #credential:
+      #credentials:
       #  username: ${{ secrets.username }}
       #  password: ${{ secrets.password }}
       env:
         ENV: "Teste"
-      options: --cpu 1 --entrypoint ['/usr/bin/env', 'PATH=/usr/local/bin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin']
+      options: --cpus 1 --entrypoint ['/usr/bin/env', 'PATH=/usr/local/bin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin']
     steps:
       - name: Precommit Validate Step
         run: |
