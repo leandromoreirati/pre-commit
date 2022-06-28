@@ -29,9 +29,9 @@ jobs:
       image: leandromoreirajfa/pre-commit:latest
       env:
         NODE_ENV: development
-      options: --cpus 1
+      options: --cpus 1 --entrypoint ['/usr/bin/env', 'PATH=/usr/local/bin:/usr/local/bin:/usr/#sbin:/usr/bin:/sbin:/bin']
     steps:
-      - name: Check for dockerenv file
+      - name: Precommit Validate
         run: |
           echo $ENV
           pre-commit install
