@@ -11,7 +11,7 @@ jobs:
       #  username: ${{ secrets.username }}
       #  password: ${{ secrets.password }}
       env:
-        ENV: "Teste"
+        ENV: Teste
       options: --cpus 1 --entrypoint ['/usr/bin/env', 'PATH=/usr/local/bin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin']
     steps:
       - name: Precommit Validate Step
