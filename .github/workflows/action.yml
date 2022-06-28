@@ -1,24 +1,5 @@
 name: Pre-commit
 
-#on: push
-#
-#jobs:
-#  precommit-validate:
-#    runs-on: ubuntu-latest
-#    container:
-#      image: leandromoreirajfa/pre-commit:latest
-#      #credentials:
-#      #  username: ${{ secrets.username }}
-#      #  password: ${{ secrets.password }}
-#      #env:
-#      #  ENV: Teste
-#      options: --cpus 1 --entrypoint ['/usr/bin/env', 'PATH=/usr/local/bin:/usr/local/bin:/usr/#sbin:/usr/bin:/sbin:/bin']
-#    steps:
-#      - name: Precommit Validate Step
-#        run: |
-#          echo $ENV
-#          pre-commit install
-         
 on:
   push:
     branches: [ main ]
@@ -29,11 +10,11 @@ jobs:
       image: leandromoreirajfa/pre-commit:1.0.0
       env:
         ENV: "Test"
-        PATH: /usr/local/bin:/usr/local/bin:/usr/#sbin:/usr/bin:/sbin:/bin
       options: --cpus 1
     steps:
+      - name: Checkout
+        uses: actions/checkout@v1
       - name: Precommit Validate
         run: |
           echo $ENV
-         
           pre-commit install
