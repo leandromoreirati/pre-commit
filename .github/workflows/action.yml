@@ -26,15 +26,12 @@ jobs:
   container-test-job:
     runs-on: ubuntu-latest
     container:
-      image: leandromoreirajfa/pre-commit:latest
+      image: leandromoreirajfa/pre-commit:1.0.0
       env:
         ENV: "Test"
       options: --cpus 1
     steps:
       - name: Precommit Validate
         run: |
-          echo ${{ github.workspace }}
           echo $ENV
-          cat /etc/os-release
-          git init
           pre-commit install
